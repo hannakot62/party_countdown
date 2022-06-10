@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:regular,500,600,700,800&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+
+    <script src="/js/script.js"></script>
+
+    <title>C O U N T D O W N</title>
+</head>
+
+
+<body>
+    <div class="form-container hidden">
+        <form class="event-form" id="event-form">
+            <h1 class="event-form__title">New Event</h1>
+
+            <label for="title">
+                <input type="text" placeholder="Enter A New Event Title" id="title">
+            </label>
+            <label for="event">
+                <input type="datetime-local" placeholder="dd.mm.yyyy --.--" id="event">
+            </label>
+            <button type="submit" value="Create A Countdown!" class="first-btn">
+
+                Create A Countdown!
+
+                <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M4.75 12C4.75 7.99594 7.99594 4.75 12 4.75V4.75C16.0041 4.75 19.25 7.99594 19.25 12V12C19.25 16.0041 16.0041 19.25 12 19.25V19.25C7.99594 19.25 4.75 16.0041 4.75 12V12Z">
+                    </path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M9.75 12.75L10.1837 13.6744C10.5275 14.407 11.5536 14.4492 11.9564 13.7473L14.25 9.75">
+                    </path>
+                </svg>
+
+
+            </button>
+        </form>
+    </div>
+
+    <div class="event-container hidden">
+        <div class="event">
+            <button class="event__btn">
+                <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M6.75 7.75L7.59115 17.4233C7.68102 18.4568 8.54622 19.25 9.58363 19.25H14.4164C15.4538 19.25 16.319 18.4568 16.4088 17.4233L17.25 7.75">
+                    </path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M9.75 7.5V6.75C9.75 5.64543 10.6454 4.75 11.75 4.75H12.25C13.3546 4.75 14.25 5.64543 14.25 6.75V7.5">
+                    </path>
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M5 7.75H19"></path>
+                </svg>
+            </button>
+
+            <h1 class="event-title">TITLE</h1>
+
+            <div class="event__countdown">
+                <div class="event__item">
+                    <p class="item__title" id="days">DAYS</p>
+                    <p class="item__count" id="days-count">1</p>
+                </div>
+                <div class="event__item">
+                    <p class="item__title" id="hours">HOURS</p>
+                    <p class="item__count" id="hours-count">2</p>
+                </div>
+                <div class="event__item">
+                    <p class="item__title" id="minutes">MINUTES</p>
+                    <p class="item__count" id="minutes-count">3</p>
+                </div>
+                <div class="event__item">
+                    <p class="item__title" id="seconds">SECONDS</p>
+                    <p class="item__count" id="seconds-count">4</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+
+</html>

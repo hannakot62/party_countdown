@@ -1,0 +1,193 @@
+*, *::after, *::before{
+    border: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+:root{
+    --transitionall: all 0.3s ease;
+}
+
+
+html{
+    /* background: rgb(254,255,0);
+    background: linear-gradient(320deg, rgba(254,255,0,1) 0%, rgba(255,129,19,1) 53%, rgba(255,35,35,1) 100%); */
+    background: rgb(181,34,158);
+background: linear-gradient(320deg, rgba(181,34,158,1) 0%, rgba(104,100,255,1) 53%, rgba(79,229,228,1) 100%);
+    height: 100%;
+    width: 100%;
+    font-family: 'Bebas Neue', cursive;
+}
+
+body{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.form-container{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+    /* background-color: rgb(255 105 23); */
+    border: 2px solid rgb(224 247 255);
+    border-radius: 20px;
+    display: flex;
+    display: inline-block;
+    vertical-align: middle;
+    width: 410px;
+/* 
+    background: rgb(255,113,58);
+    background: linear-gradient(320deg, rgba(255,113,58,1) 0%, rgba(251,143,20,1) 53%, rgba(255,190,25,1) 100%); */
+
+    -webkit-box-shadow: 0px 0px 73px 18px rgba(80, 34, 34, 0.67);
+    -moz-box-shadow: 0px 0px 73px 18px rgba(80, 34, 34, 0.67);
+    box-shadow: 0px 0px 73px 18px rgba(80, 34, 34, 0.67);
+
+opacity: 1;
+pointer-events: all;
+transition: var(--transitionall);
+}
+.form-container.hidden{
+    opacity: 0;;
+    pointer-events: none;
+}
+.event-container.hidden{
+    opacity: 0;;
+    pointer-events: none;
+}
+label{
+    margin-left: -10px;
+}
+h1{    
+    font-size: 80px;
+    padding-bottom: 20px;
+}
+input{
+    padding: 15px, 15px;
+    font-size: 25px;
+    line-height: 150%;
+    margin: 10px;
+    font-family: Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    width: 100%;
+color: rgb(230, 240, 255);
+background-color: rgb(153 138 255);
+border: 2px solid rgb(224 247 255);
+border-radius: 7px;
+padding-left: 16px;
+}
+input:hover{
+    background-color:rgb(90, 73, 203);
+    cursor: pointer;
+    transition: var(--transitionall);
+}
+::placeholder{
+    color: rgb(230, 240, 255);
+    font-family: 'Bebas Neue', cursive;
+}
+::after input{
+    font-family: 'Bebas Neue', cursive;
+}
+
+.first-btn{
+    font-size: 15px;
+    line-height: 150%;
+    padding: 17px, 9px;
+    margin-top: 30px;
+    width: 100%;
+    font-weight: bolder;
+    font-size: 35px;
+    font-family: 'Bebas Neue', cursive;
+letter-spacing: 3px;
+color: #fff;
+background-color: rgb(153 58 193);
+border:2px solid rgb(224 247 255);
+border-radius: 7px;
+text-shadow: 0px -2px 6px rgba(150, 150, 150, 1);
+}
+
+.first-btn:hover{
+    background-color: rgb(74, 11, 85);
+cursor: pointer;
+transition: var(--transitionall);
+}
+.event-form__title{
+    text-align: center;
+    letter-spacing: 3px;
+    color: white;
+    text-shadow:1px 1px 6px #333333;
+}
+/*-----------------------------------------------------------------------------------*/
+
+.event-container{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+    /* background-color: rgb(255 105 23); */
+    border: 2px solid rgb(224 247 255);
+    border-radius: 20px;
+    display: flex;
+    display: inline-block;
+    vertical-align: middle;
+    width: 600px;
+    -webkit-box-shadow: 0px 0px 73px 18px rgba(80, 34, 34, 0.67);
+    -moz-box-shadow: 0px 0px 73px 18px rgba(80, 34, 34, 0.67);
+    box-shadow: 0px 0px 73px 18px rgba(80, 34, 34, 0.67);
+    opacity: 1;
+pointer-events: all;
+transition: var(--transitionall);
+}
+
+.event__btn{
+    position: absolute;
+border-radius: 50%;
+padding: 15px;
+right: -2rem;
+top: -2rem;
+background-color: #d9eafc;
+border: 2px solid #d9eafc;
+
+}
+
+.event__btn:hover{
+    background-color: #8e2d79;
+transition: var(--transitionall);
+cursor: pointer;
+color: #d9eafc;
+
+}
+
+.event-title{
+    text-align: center;
+    letter-spacing: 3px;
+    color: white;
+    text-shadow:1px 1px 6px #333333;
+
+}
+.event__countdown{
+    display: flex;
+    justify-content: space-between;
+}
+.event__item{
+    text-align: center;
+    color: #fff;
+    font-size: 30px;
+    border: 2px solid  #d9eafc;
+    width: 100px;
+    padding: 10px 0px;;
+    margin: 10px;
+    border-radius: 13px;
+    background-color: #926bef;
+
+    -webkit-box-shadow: 0px 0px 15px 8px rgba(34, 60, 80, 0.2);
+-moz-box-shadow: 0px 0px 15px 8px rgba(34, 60, 80, 0.2);
+box-shadow: 0px 0px 15px 8px rgba(34, 60, 80, 0.2);
+}
+.item__count{
+    color: #590046;
+}
