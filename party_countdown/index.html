@@ -15,14 +15,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
 
-    <script src="/js/script.js"></script>
-
     <title>C O U N T D O W N</title>
 </head>
 
 
-<body>
-    <div class="form-container hidden">
+<body>  
+    <div class="form-container hidden" id="form-container">
         <form class="event-form" id="event-form">
             <h1 class="event-form__title">New Event</h1>
 
@@ -50,7 +48,7 @@
         </form>
     </div>
 
-    <div class="event-container hidden">
+    <div class="event-container hidden" id="event-container">
         <div class="event">
             <button class="event__btn">
                 <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -89,6 +87,6 @@
     </div>
 </body>
 
-
+<script src="./js/script.js"></script>
 
 </html>

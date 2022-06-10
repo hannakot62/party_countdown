@@ -1,6 +1,8 @@
 //query selectors
-const EventContainer = document.getElementsByClassName('event-container');
-const FormContainer = document.getElementsByClassName('form-container');
+const EventContainer = document.getElementById('event-container');
+const FormContainer = document.getElementById('form-container');
+
+console.log(EventContainer, FormContainer)
 
 //event selectors
 const DaysCount = document.querySelector('#days-count');
@@ -36,7 +38,7 @@ function checkLocalStorage() {
     // FormContainer.hidden = true;
     // EventContainer.hidden = true;
     if (localStorage.getItem('eventTracker.event') === "", localStorage.getItem
-        ('eventTracker.event') === "[]") {
+        ('eventTracker.event') === "[]" || localStorage.getItem('eventTracker.event') === null) {
         showForm();
     }
     else {
@@ -58,7 +60,7 @@ function showEvent(title, event) {
     addHiddenClass(FormContainer);
 }
 
-const form = document.getElementById('event-form').addEventListener('submit', (e) => {
+document.getElementById('event-form').addEventListener('submit', (e) => {
     //const onClick = () => {
     e.preventDefault();
     const title = document.querySelector('#title');
