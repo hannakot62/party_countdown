@@ -15,11 +15,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
 
+
     <title>C O U N T D O W N</title>
 </head>
 
 
-<body>  
+<body>
     <div class="form-container hidden" id="form-container">
         <form class="event-form" id="event-form">
             <h1 class="event-form__title">New Event</h1>
@@ -50,7 +51,7 @@
 
     <div class="event-container hidden" id="event-container">
         <div class="event">
-            <button class="event__btn">
+            <button class="event__btn" onclick="showForm()">
                 <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                         d="M6.75 7.75L7.59115 17.4233C7.68102 18.4568 8.54622 19.25 9.58363 19.25H14.4164C15.4538 19.25 16.319 18.4568 16.4088 17.4233L17.25 7.75">
@@ -63,7 +64,7 @@
                 </svg>
             </button>
 
-            <h1 class="event-title">TITLE</h1>
+            <h1 class="event-title" id="event-title">TITLE</h1>
 
             <div class="event__countdown">
                 <div class="event__item">
@@ -87,6 +88,8 @@
     </div>
 </body>
 
-<script src="./js/script.js"></script>
+
+<script src="/js/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 
 </html>

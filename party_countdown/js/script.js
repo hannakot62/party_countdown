@@ -2,15 +2,13 @@
 const EventContainer = document.getElementById('event-container');
 const FormContainer = document.getElementById('form-container');
 
-console.log(EventContainer, FormContainer)
-
 //event selectors
-const DaysCount = document.querySelector('#days-count');
-const HoursCount = document.querySelector('#hours-count');
-const MinutesCount = document.querySelector('#minutes-count');
-const SecondsCount = document.querySelector('#seconds-count');
+const DaysCount = document.getElementById('days-count');
+const HoursCount = document.getElementById('hours-count');
+const MinutesCount = document.getElementById('minutes-count');
+const SecondsCount = document.getElementById('seconds-count');
 
-//time selectors
+//time
 const second = 1000;
 const minute = second * 60;
 const hour = minute * 60;
@@ -21,22 +19,96 @@ let countdown;
 
 function addHiddenClass(element) {
     element.classList.add('hidden');
-    // element.hidden = true;
 }
 
 function removeHiddenClass(element) {
     element.classList.remove('hidden');
-    // element.hidden = false;
+}
+
+function deleteEventFromLocalStorage() {
+    localStorage.setItem('eventTracker.event', '[]');
+}
+
+
+function saveEventToLocalStorage(title, date) {
+    const event = {
+        title,
+        date,
+    };
+    localStorage.setItem('eventTracker.event', JSON.stringify(event));
+}
+
+function updateCoundown(date) {
+    const currentTime = new Date().getTime();
+    const countdownTime = date - currentTime;
+
+    const newDay = Math.floor(countdownTime / day);
+    const newHour = Math.floor((countdownTime % day) / hour);
+    const newMinute = Math.floor((countdownTime % hour) / minute);
+    const newSecond = Math.floor((countdownTime % minute) / second);
+
+    DaysCount.innerHTML = newDay;
+    HoursCount.innerHTML = newHour;
+    MinutesCount.innerHTML = newMinute;
+    SecondsCount.innerHTML = newSecond;
+
+    if (newDay === 0 && newHour === 0 && newMinute === 0 && newSecond === 0) {
+        // do this for 4 seconds
+        var duration = 4 * 1000;
+        var end = Date.now() + duration;
+
+        (function frame() {
+            // launch a few confetti from the left edge
+            confetti({
+                particleCount: 7,
+                angle: 60,
+                spread: 55,
+                origin: { x: 0 }
+            });
+            // and launch a few from the right edge
+            confetti({
+                particleCount: 7,
+                angle: 120,
+                spread: 55,
+                origin: { x: 1 }
+            });
+
+            // keep going until we are out of time
+            if (Date.now() < end) {
+                requestAnimationFrame(frame);
+            }
+        }());
+        clearInterval(countdown);
+        setTimeout(() => {
+            showForm();
+        }, 2000);
+    }
+}
+
+function startCountdownTimer(title, date) {
+    document.getElementById('event-title').innerHTML = title;
+    updateCoundown(date);
+    countdown = setInterval(() => {
+        updateCoundown(date);
+    }, 1000);
 }
 
 function showForm() {
     removeHiddenClass(FormContainer);
     addHiddenClass(EventContainer);
+    deleteEventFromLocalStorage();
+    const title = document.getElementById('title');
+    title.focus();
+    const date = document.getElementById('event');
+    date.value = 'дд.мм.гггг --:--';
+    document.body.style.background = "rgb(181,34,158)";
+    document.body.style.background = "linear-gradient(320deg, rgba(181,34,158,1) 0%, rgba(104,100,255,1) 53%, rgba(79,229,228,1) 100%)";
+
+
 }
 
 function checkLocalStorage() {
-    // FormContainer.hidden = true;
-    // EventContainer.hidden = true;
+
     if (localStorage.getItem('eventTracker.event') === "", localStorage.getItem
         ('eventTracker.event') === "[]" || localStorage.getItem('eventTracker.event') === null) {
         showForm();
@@ -51,20 +123,23 @@ function checkLocalStorage() {
 window.addEventListener('DOMContentLoaded', checkLocalStorage);
 
 
+function showEvent(title, date) {
 
-function showEvent(title, event) {
-
-    // saveEventToLocalStorage(title, date);
-    // startCountdownTimer(title, date);
+    saveEventToLocalStorage(title, date);
+    startCountdownTimer(title, date);
     removeHiddenClass(EventContainer);
     addHiddenClass(FormContainer);
+    document.body.style.background = "rgb(254,255,0)";
+    document.body.style.background = "linear-gradient(320deg, rgba(254,255,0,1) 0%, rgba(255,129,19,1) 53%, rgba(255,35,35,1) 100%)";
+
+
 }
 
+// const form = 
 document.getElementById('event-form').addEventListener('submit', (e) => {
-    //const onClick = () => {
     e.preventDefault();
-    const title = document.querySelector('#title');
-    const eventInput = document.querySelector('#event');
+    const title = document.getElementById('title');
+    const eventInput = document.getElementById('event');
     const event = new Date(eventInput.value).getTime();
 
     if (title.value === '' || eventInput.value === '') {
@@ -74,5 +149,4 @@ document.getElementById('event-form').addEventListener('submit', (e) => {
     title.value = '';
     event.value = '';
 })
-// }
-// )
+
