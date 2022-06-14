@@ -141,7 +141,10 @@ document.getElementById('event-form').addEventListener('submit', (e) => {
     const title = document.getElementById('title');
     const eventInput = document.getElementById('event');
     const event = new Date(eventInput.value).getTime();
-
+    let current = new Date().getTime();
+    if (event === current || event < current) {
+        return alert("Please enter a correct date!");
+    }
     if (title.value === '' || eventInput.value === '') {
         return alert("Please enter a title and a date!");
     }
